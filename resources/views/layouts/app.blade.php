@@ -76,8 +76,8 @@
                 </li>
               </ul>
               
-              <li class="dropdown mx-2" >
-                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <li class="dropdown ms-2" >
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       <button class="btn btn-danger">{{ Auth::user()->name }}</button>  
                   </a>
                   <br>
