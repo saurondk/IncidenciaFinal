@@ -19,7 +19,7 @@
                         <form method="POST" action="{{ route('incidencias.update', $incidencia->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
-
+                            @method('PUT')
                             @include('incidencia.form')
 
                         </form>

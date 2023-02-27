@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aula;
 use App\Models\Incidencia;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,8 @@ class IncidenciaController extends Controller
     public function create()
     {
         $incidencia = new Incidencia();
-        return view('incidencia.create', compact('incidencia'));
+        $aulas = Aula::pluck('nombre', 'id');
+        return view('incidencia.create', compact('incidencia', 'aulas'));
     }
 
     /**
@@ -73,8 +75,8 @@ class IncidenciaController extends Controller
     public function edit($id)
     {
         $incidencia = Incidencia::find($id);
-
-        return view('incidencia.edit', compact('incidencia'));
+        $aulas = Aula::pluck('nombre', 'id');
+        return view('incidencia.edit', compact('incidencia', 'aulas'));
     }
 
     /**
@@ -86,12 +88,11 @@ class IncidenciaController extends Controller
      */
     public function update(Request $request, Incidencia $incidencia)
     {
-        request()->validate(Incidencia::$rules);
 
         $incidencia->update($request->all());
-
+        
         return redirect()->route('incidencias.index')
-            ->with('success', 'Incidencia updated successfully');
+            ->with('success', 'Incidencia actualizada correctamente');
     }
 
     /**
@@ -104,6 +105,6 @@ class IncidenciaController extends Controller
         $incidencia = Incidencia::find($id)->delete();
 
         return redirect()->route('incidencias.index')
-            ->with('success', 'Incidencia deleted successfully');
+            ->with('success', 'Incidencia eliminada');
     }
 }

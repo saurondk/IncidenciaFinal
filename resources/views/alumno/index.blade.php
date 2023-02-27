@@ -58,14 +58,14 @@
                                                 <form action="{{ route('alumnos.destroy', $alumno->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary "
                                                         href="{{ route('alumnos.show', $alumno->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> Show</a>
+                                                            class="fa fa-fw fa-eye"></i> Mostrar</a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('alumnos.edit', $alumno->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> Edit</a>
+                                                            class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> Delete</button>
+                                                            class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
                                             </td>
                                         </tr>

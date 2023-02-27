@@ -22,7 +22,7 @@
    
     <div class="d-flex justify-content-between" style="height: 100%; margin:0; padding:0;">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" >
-              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <a href="{{route('incidencias.index')}}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
               
                 <span class="fs-4">Incidencias</span>
               </a>
@@ -76,7 +76,7 @@
                 </li>
               </ul>
               
-              <li class="dropdown ms-2" >
+              <li class="dropdown mx-2" >
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       <button class="btn btn-danger">{{ Auth::user()->name }}</button>  
                   </a>
@@ -87,7 +87,7 @@
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+                    {{ __('Cerrar Sesión') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
