@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
+
 
 /**
  * Class UserController
@@ -46,6 +48,7 @@ class UserController extends Controller
     {
         request()->validate(User::$rules);
 
+
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -54,6 +57,7 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
             ->with('success', 'Usuario creado correctamente.');
+
     }
 
     /**
@@ -96,7 +100,9 @@ class UserController extends Controller
         $user->update($request->all());
 
         return redirect()->route('users.index')
+
             ->with('success', 'Usuario editado correctamente');
+
     }
 
     /**
@@ -109,6 +115,8 @@ class UserController extends Controller
         $user = User::find($id)->delete();
 
         return redirect()->route('users.index')
+
             ->with('success', 'Usuario eliminado correctamente');
+
     }
 }

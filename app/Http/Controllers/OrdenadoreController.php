@@ -50,6 +50,7 @@ class OrdenadoreController extends Controller
         $ordenadore = Ordenadore::create($request->all());
 
         return redirect()->route('ordenadores.index')
+
             ->with('success', 'El ordenador ha sido creado correctamente');
     }
 
@@ -61,7 +62,7 @@ class OrdenadoreController extends Controller
      */
     public function show($id)
     {
-       
+
         $ordenadore = Ordenadore::find($id);
 
         return view('ordenadore.show', compact('ordenadore'));
@@ -75,10 +76,12 @@ class OrdenadoreController extends Controller
      */
     public function edit($id)
     {
+
         $aulas = Aula::pluck('nombre','id');
         $ordenadore = Ordenadore::find($id);
 
         return view('ordenadore.edit', compact('ordenadore', 'aulas'));
+
     }
 
     /**
@@ -95,7 +98,9 @@ class OrdenadoreController extends Controller
         $ordenadore->update($request->all());
 
         return redirect()->route('ordenadores.index')
+
             ->with('success', 'El ordenador ha sido actualizado correctamente');
+
     }
 
     /**
@@ -108,6 +113,8 @@ class OrdenadoreController extends Controller
         $ordenadore = Ordenadore::find($id)->delete();
 
         return redirect()->route('ordenadores.index')
+
             ->with('success', 'El ordenador ha sido borrado correctamente');
+
     }
 }

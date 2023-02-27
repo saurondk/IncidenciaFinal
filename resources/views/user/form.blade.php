@@ -8,10 +8,13 @@
         </div>
         <div class="form-group">
             {{ Form::label('Email') }}
+
             {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
             {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
+
+
 
 </div>

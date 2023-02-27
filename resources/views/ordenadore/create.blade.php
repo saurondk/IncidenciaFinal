@@ -13,6 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
+
                         <span class="card-title">Crear Ordenador</span>
                     </div>
                     <div class="card-body">
@@ -23,6 +24,7 @@
                             <div class="box-footer mt-3">
                                 <button type="submit" class="btn btn-primary">Crear</button>
                             </div>
+
 
                         </form>
                     </div>

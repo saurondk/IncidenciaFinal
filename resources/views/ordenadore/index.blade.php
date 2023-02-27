@@ -18,7 +18,9 @@
 
                              <div class="float-right">
                                 <a href="{{ route('ordenadores.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+
                                   {{ __('Crear Nuevo Ordenador') }}
+
                                 </a>
                               </div>
                         </div>
@@ -34,8 +36,10 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
+
                                         
 										<th>Número de Ordenador</th>
+
 										<th>Nombre de Aula</th>
 
                                         <th></th>
@@ -44,9 +48,12 @@
                                 <tbody>
                                     @foreach ($ordenadores as $ordenadore)
                                         <tr>
+
+
                                             
 											<td>{{ $ordenadore->numero }}</td>
 											<td>{{ $ordenadore->aula->nombre }}</td>
+
 
                                             <form action="{{ route('ordenadores.destroy',$ordenadore->id) }}" method="POST">
                                                 <td width="130px">
@@ -60,6 +67,7 @@
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </td>
                                         </form>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

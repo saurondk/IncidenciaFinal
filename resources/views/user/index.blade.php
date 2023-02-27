@@ -13,12 +13,16 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
+
                                 {{ __('Usuarios') }}
+
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+
                                   {{ __('Crear Nuevo Usuario') }}
+
                                 </a>
                               </div>
                         </div>
@@ -34,9 +38,11 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
+
                                         <th>Nº</th>
                                         
 										<th>Nombre</th>
+
 										<th>Email</th>
 
                                         <th></th>
@@ -49,6 +55,7 @@
                                             
 											<td>{{ $user->name }}</td>
 											<td>{{ $user->email }}</td>
+
                                             <form action="{{ route('users.destroy',$user->id) }}" method="POST">
                                                 <td width="130px">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Mostar Detalles</a>
@@ -62,6 +69,7 @@
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </td>
                                         </form>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

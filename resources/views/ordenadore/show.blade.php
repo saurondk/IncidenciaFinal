@@ -11,16 +11,19 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
+
                             <span class="card-title">Detalles del ordenador</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('ordenadores.index') }}">Volver</a>
+
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
+
                             <strong>Número:</strong>
                             {{ $ordenadore->numero }}
                         </div>
@@ -31,6 +34,7 @@
                         <div class="form-group">
                             <strong>Editado en:</strong>
                             {{$ordenadore->updated_at}}
+
                         </div>
 
                     </div>

@@ -33,13 +33,17 @@
                       @guest
                           @if (Route::has('login'))
                               <li class="nav-item">
+
                                   <a class="nav-link" href="{{ route('login') }}">{{ __('Inicar Sesión') }}</a>
+
                               </li>
                           @endif
       
                           @if (Route::has('register'))
                               <li class="nav-item">
+
                                   <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+
                               </li>
                           @endif
                       @else
