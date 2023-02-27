@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Ordenadore;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,8 +24,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('users',App\Http\Controllers\UserController::class);
-Route::resource('alumnos',App\Http\Controllers\AlumnoController::class);
-Route::resource('aulas',App\Http\Controllers\AulaController::class);
-Route::resource('incidencias',App\Http\Controllers\IncidenciaController::class);
-Route::resource('ordenadores',App\Http\Controllers\OrdenadoreController::class);
+Route::resource('users', App\Http\Controllers\UserController::class);
+Route::resource('alumnos', App\Http\Controllers\AlumnoController::class);
+Route::resource('aulas', App\Http\Controllers\AulaController::class);
+Route::resource('incidencias', App\Http\Controllers\IncidenciaController::class);
+Route::resource('ordenadores', App\Http\Controllers\OrdenadoreController::class);
+
+Route::get('aulas/{aulaId}/ordenadores', function($aulaId) {
+    // Obtener los ordenadores pertenecientes a la aula seleccionada
+    $ordenadores = Ordenadore::where('aula_id', $aulaId)->get();
+
+    // Devolver los ordenadores en formato JSON
+    return response()->json($ordenadores);
+});

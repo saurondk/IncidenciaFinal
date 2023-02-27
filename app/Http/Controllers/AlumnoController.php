@@ -32,7 +32,8 @@ class AlumnoController extends Controller
     public function create()
     {
         $alumno = new Alumno();
-        return view('alumno.create', compact('alumno'));
+        $aulas = Aula::pluck('nombre', 'id');
+        return view('alumno.create', compact('alumno', 'aulas'));
     }
 
     /**
