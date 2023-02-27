@@ -13,12 +13,16 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('User') }}
+
+                                {{ __('Usuarios') }}
+
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+
+                                  {{ __('Crear Nuevo Usuario') }}
+
                                 </a>
                               </div>
                         </div>
@@ -34,9 +38,11 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+
+                                        <th>Nº</th>
                                         
-										<th>Name</th>
+										<th>Nombre</th>
+
 										<th>Email</th>
 
                                         <th></th>
@@ -50,15 +56,20 @@
 											<td>{{ $user->name }}</td>
 											<td>{{ $user->email }}</td>
 
-                                            <td>
-                                                <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+                                                <td width="130px">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Mostar Detalles</a>
+                                                </td>
+                                                <td width="10px">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                </td>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
-                                            </td>
+                                                <td width="10px">
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
+                                                </td>
+                                        </form>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

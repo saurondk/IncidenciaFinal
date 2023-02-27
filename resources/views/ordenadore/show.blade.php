@@ -11,22 +11,30 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Ordenadore</span>
+
+                            <span class="card-title">Detalles del ordenador</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('ordenadores.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('ordenadores.index') }}">Volver</a>
+
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Numero:</strong>
+
+                            <strong>Número:</strong>
                             {{ $ordenadore->numero }}
                         </div>
                         <div class="form-group">
-                            <strong>Aula Id:</strong>
-                            {{ $ordenadore->aula_id }}
+                            <strong>Creado en :</strong>
+                            {{$ordenadore->created_at}}
+                        </div>
+                        <div class="form-group">
+                            <strong>Editado en:</strong>
+                            {{$ordenadore->updated_at}}
+
                         </div>
 
                     </div>
