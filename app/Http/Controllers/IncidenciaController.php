@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Aula;
 use App\Models\Incidencia;
+use App\Models\Ordenadore;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -20,8 +22,11 @@ class IncidenciaController extends Controller
     public function index()
     {
         $incidencias = Incidencia::paginate();
+        $aulas = Aula::pluck('nombre', 'id');
+        $user = User::pluck('name', 'id');
+        $ordenadores = Ordenadore::pluck('numero', 'id');
 
-        return view('incidencia.index', compact('incidencias'))
+        return view('incidencia.index', compact('incidencias', 'aulas', 'user', 'ordenadores'))
             ->with('i', (request()->input('page', 1) - 1) * $incidencias->perPage());
     }
 

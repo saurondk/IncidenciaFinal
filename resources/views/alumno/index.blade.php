@@ -51,8 +51,8 @@
                                             <td>{{ $alumno->nombre }}</td>
                                             <td>{{ $alumno->apellidos }}</td>
                                             <td>{{ $alumno->email }}</td>
-                                            <td>{{ $alumno->ordenador_id }}</td>
-                                            <td>{{ $alumno->aula_id }}</td>
+                                            <td>{{ $alumno->ordenadore->numero }}</td>
+                                            <td>{{ $alumno->aula->nombre }}</td>
 
                                             <td>
                                                 <form action="{{ route('alumnos.destroy', $alumno->id) }}" method="POST">

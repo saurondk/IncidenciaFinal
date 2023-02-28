@@ -36,4 +36,4 @@ Route::get('aulas/{aulaId}/ordenadores', function($aulaId) {
 
     // Devolver los ordenadores en formato JSON
     return response()->json($ordenadores);
-});
+})->name('aulas.ordenadores');

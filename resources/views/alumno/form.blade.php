@@ -21,7 +21,7 @@
             {!! $errors->first('aula_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
-        <div class="form-group" id="form-group-ordenador-id" style="display:none">
+        <div class="form-group" id="form-group-ordenador-id">
             {{ Form::label('ordenador_id', 'Ordenador') }}
             {{ Form::select('ordenador_id', [], null, ['class' => 'form-control' . ($errors->has('ordenador_id') ? ' is-invalid' : ''), 'id' => 'ordenador_id']) }}
             {!! $errors->first('ordenador_id', '<div class="invalid-feedback">:message</div>') !!}
@@ -33,40 +33,24 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var aulaSelect = document.querySelector("select[name='aula_id']");
-            var ordenadorDiv = document.querySelector(".form-group:nth-child(5)");
-
-            ordenadorDiv.style.display = "none";
-
-            aulaSelect.addEventListener("change", function() {
-                if (this.value) {
-                    ordenadorDiv.style.display = "block";
-                } else {
-                    ordenadorDiv.style.display = "none";
-                }
-            });
-        });
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('#aula_id').addEventListener('change', function() {
-                var aulaId = this.value;
+            var aulaSelect = document.querySelector('#aula_id');
+            var ordenadorSelect = document.querySelector('#ordenador_id');
+
+            function loadOrdenadores(aulaId) {
                 if (aulaId) {
+                    var url = "{{ route('aulas.ordenadores', ':aulaId') }}".replace(':aulaId', aulaId);
                     var xhr = new XMLHttpRequest();
-                    xhr.open('GET', "../aulas/" + aulaId + "/ordenadores", true);
+                    xhr.open('GET', url, true);
                     xhr.responseType = 'json';
                     xhr.onload = function() {
                         if (xhr.status === 200) {
                             var data = xhr.response;
-                            // console.log(data);
-                            var ordenadorSelect = document.querySelector('#ordenador_id');
-                            ordenadorSelect.innerHTML =
-                                '<option value="">Seleccione un ordenador</option>';
+                            ordenadorSelect.innerHTML = '<option value="">Seleccione un ordenador</option>';
                             data.forEach(element => {
                                 var option = document.createElement('option');
-                                console.log(element);
-                                option.value = element.aula_id;
+                                option.value = element.id;
                                 option.textContent = element.numero;
-                                console.log(option);
                                 ordenadorSelect.appendChild(option);
                             });
                             document.querySelector('#form-group-ordenador-id').style.display = 'block';
@@ -79,11 +63,20 @@
                     };
                     xhr.send();
                 } else {
-                    var ordenadorSelect = document.querySelector('#ordenador_id');
                     ordenadorSelect.innerHTML = '';
                     document.querySelector('#form-group-ordenador-id').style.display = 'none';
                 }
+            }
+
+            aulaSelect.addEventListener('change', function() {
+                var aulaId = this.value;
+                loadOrdenadores(aulaId);
             });
+
+            // cargar los ordenadores al cargar la página
+            var selectedAulaId = aulaSelect.value;
+            console.log(selectedAulaId);
+            loadOrdenadores(selectedAulaId);
         });
     </script>
 </div>

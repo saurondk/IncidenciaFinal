@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aula;
 use App\Models\Alumno;
+use App\Models\Ordenadore;
 use Illuminate\Http\Request;
 
 /**

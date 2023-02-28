@@ -58,7 +58,7 @@
                             data.forEach(element => {
                                 var option = document.createElement('option');
                                 console.log(element);
-                                option.value = element.aula_id;
+                                option.value = element.id;
                                 option.textContent = element.numero;
                                 console.log(option);
                                 ordenadorSelect.appendChild(option);

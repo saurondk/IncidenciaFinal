@@ -37,9 +37,9 @@
                                         <th>No</th>
                                         
 										<th>Incidencia</th>
-										<th>Ordenador Id</th>
-										<th>Aula Id</th>
-										<th>Usuario Id</th>
+										<th>Nº Ordenador</th>
+										<th>Aula</th>
+										<th>Profesor</th>
 
                                         <th></th>
                                     </tr>
@@ -50,9 +50,9 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $incidencia->incidencia }}</td>
-											<td>{{ $incidencia->ordenador_id }}</td>
-											<td>{{ $incidencia->aula_id }}</td>
-											<td>{{ $incidencia->usuario_id }}</td>
+											<td>{{ $incidencia->ordenadore->numero }}</td>
+											<td>{{ $incidencia->aula->nombre }}</td>
+											<td>{{ $incidencia->user->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('incidencias.destroy',$incidencia->id) }}" method="POST">
